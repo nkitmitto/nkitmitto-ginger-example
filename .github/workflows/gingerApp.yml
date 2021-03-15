@@ -29,3 +29,11 @@ jobs:
           chmod +x config.sh
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+    - name: Deploy to Amazon ECS service
+      id: deploy-task-definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: task_definition.json
+        service: apache
+        cluster: Ginger-Example
