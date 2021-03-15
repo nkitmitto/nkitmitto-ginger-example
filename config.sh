@@ -10,9 +10,6 @@ make && make install
 echo "LoadModule wsgi_module modules/mod_wsgi.so" >> /etc/httpd/conf.d/httpd.conf
 chkconfig httpd on
 cd /tmp/
-aws s3 cp s3://nk-ginger-example/app.zip /tmp/
-unzip app.zip
-mv vuln/ /var/www/
 git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git
 cd owasp-modsecurity-crs
 cp crs-setup.conf.example /etc/httpd/conf.d/crs-setup.conf
