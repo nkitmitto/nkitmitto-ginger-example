@@ -13,6 +13,7 @@ cd /tmp/
 git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git
 cd owasp-modsecurity-crs
 cp crs-setup.conf.example /etc/httpd/conf.d/crs-setup.conf
+rm -rf /etc/httpd/modsecurity.d/
 mkdir /etc/httpd/modsecurity.d/
 mv rules/ /etc/httpd/modsecurity.d/
 rm -rf /etc/httpd/conf.d/mod_security.conf
