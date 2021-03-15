@@ -66,13 +66,12 @@ def index():
     if request.method == "POST":
       details = request.form
       firstName = details['fname']
-      lastName = details['lname']
-      print(f"INSERT INTO users(firstName, lastName) VALUES ({firstName}, {lastName})")
+      print(f"INSERT INTO users(firstName) VALUES ({firstName})")
       cur = mysql.connection.cursor()
-      cur.execute(f"INSERT INTO users(firstName, lastName) VALUES (\"{firstName}\", \"{lastName}\")")
+      cur.execute(f"INSERT INTO users(firstName, lastName) VALUES (\"{firstName}\")")
       mysql.connection.commit()
       cur.close()
-      return render_template('success.html', fname=firstName, lname=lastName)
+      return render_template('success.html', fname=firstName)
     return render_template('index.html')
 
 if __name__ == "__main__":
