@@ -18,5 +18,3 @@ mkdir /etc/httpd/modsecurity.d/
 mv rules/ /etc/httpd/modsecurity.d/
 rm -rf /etc/httpd/conf.d/mod_security.conf
 rm -rf /etc/httpd/conf.d/welcome.conf
-aws s3 cp s3://nk-ginger-example/apache-config.conf /etc/httpd/conf/httpd.conf
-aws s3 cp s3://nk-ginger-example/mod_security.conf /etc/httpd/modsecurity.d/mod_security.conf
