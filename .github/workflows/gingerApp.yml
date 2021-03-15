@@ -15,6 +15,9 @@ jobs:
       - name: Login to ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+      
+      - name: debug
+        run: ls
 
       - name: Build and push to ECR
         env:
@@ -22,6 +25,5 @@ jobs:
           ECR_REPOSITORY: ginger-example
           IMAGE_TAG: latest
         run: |
-          ls
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
