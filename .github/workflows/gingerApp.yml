@@ -22,7 +22,7 @@ jobs:
       - name: Build and push to ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ginger-example
+          ECR_REPOSITORY: 135588681470.dkr.ecr.us-west-2.amazonaws.com/ginger-example
           IMAGE_TAG: latest
         run: |
           ls
