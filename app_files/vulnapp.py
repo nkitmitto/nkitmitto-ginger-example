@@ -66,12 +66,12 @@ def index():
     if request.method == "POST":
       details = request.form
       firstName = details['fname']
-      print(f"INSERT INTO users(firstName) VALUES ({firstName})")
       cur = mysql.connection.cursor()
-      cur.execute(f"INSERT INTO users(firstName) VALUES (\"{firstName}\")")
-      results = cur.execute(f"SELECT * FROM users WHERE firstName = {firstName}")
+      cur.execute('SELECT * FROM users WHERE firstName = "' + firstName + '"')
+      results = cur.fetchall()
       mysql.connection.commit()
       cur.close()
+
       return render_template('success.html', fname=firstName, results=results)
     return render_template('index.html')
 
