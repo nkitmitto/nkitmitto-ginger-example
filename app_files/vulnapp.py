@@ -69,9 +69,10 @@ def index():
       print(f"INSERT INTO users(firstName) VALUES ({firstName})")
       cur = mysql.connection.cursor()
       cur.execute(f"INSERT INTO users(firstName) VALUES (\"{firstName}\")")
+      results = cur.execute(f"SELECT * FROM users WHERE firstName = {firstName}")
       mysql.connection.commit()
       cur.close()
-      return render_template('success.html', fname=firstName)
+      return render_template('success.html', fname=firstName, results=results)
     return render_template('index.html')
 
 if __name__ == "__main__":
