@@ -68,7 +68,7 @@ def index():
       firstName = details['fname']
       print(f"INSERT INTO users(firstName) VALUES ({firstName})")
       cur = mysql.connection.cursor()
-      cur.execute(f"INSERT INTO users(firstName, lastName) VALUES (\"{firstName}\")")
+      cur.execute(f"INSERT INTO users(firstName) VALUES (\"{firstName}\")")
       mysql.connection.commit()
       cur.close()
       return render_template('success.html', fname=firstName)
