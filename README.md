@@ -1,4 +1,4 @@
-# Include Architecture Diagram
+# Architecture Diagram
 ![Architecture Image](Ginger-App-Architecture.png)
 
 # Architecture Diagram Explanation
