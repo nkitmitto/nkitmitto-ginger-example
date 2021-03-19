@@ -73,7 +73,12 @@ def index():
       cur.close()
 
       return render_template('success.html', fname=firstName, results=results)
-    return render_template('index.html')
+    curs = mysql.connection.cursor()
+    curs.execute('SELECT firstName FROM users')
+    curs_results = curs.fetchall()
+    mysql.connection.commit()
+    curs.close()
+    return render_template('index.html', table_contents = curs_results)
 
 if __name__ == "__main__":
     app.run()
