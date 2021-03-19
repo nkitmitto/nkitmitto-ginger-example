@@ -66,6 +66,14 @@ def index():
     if request.method == "POST":
       details = request.form
       firstName = details['fname']
+
+      insert_user = mysql.connection.cursor()
+      insert_user.execute(f'INSERT INTO users VALUES(\'{firstName}\')')
+      results = insert_user.fetchall()
+      mysql.connection.commit()
+      insert_user.close()
+
+
       cur = mysql.connection.cursor()
       cur.execute('SELECT * FROM users WHERE firstName = "' + firstName + '"')
       results = cur.fetchall()
